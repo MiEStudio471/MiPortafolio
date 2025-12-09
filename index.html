@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARLOS ABNER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Source+Serif+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Source Serif Pro', serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR DERECHA */
+        .navbar-right {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 40px 20px;
+        }
+
+        .nav-top {
+            position: absolute;
+            top: 60px;
+            right: 40px;
+        }
+
+        .nav-bottom {
+            position: absolute;
+            bottom: 60px;
+            right: 40px;
+        }
+
+        .nav-link {
+            display: block;
+            font-size: 1.1rem;
+            color: #888;
+            text-decoration: none;
+            margin: 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+            letter-spacing: 0.25em;
+        }
+
+        .nav-button {
+            background: transparent;
+            border: 2px solid #666;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 30px;
+            display: block;
+        }
+
+        .nav-button:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 40px 100px 60px;
+        }
+
+        /* SECCIÓN INICIAL */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 120px;
+        }
+
+        .name-title {
+            font-size: 12rem;
+            font-weight: 900;
+            color: #666;
+            line-height: 0.85;
+            letter-spacing: -0.02em;
+            margin-bottom: 40px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-subtitle {
+            font-size: 3rem;
+            color: #888;
+            font-weight: 300;
+            max-width: 700px;
+            line-height: 1.3;
+            margin-bottom: 60px;
+            font-family: 'Source Serif Pro', serif;
+        }
+
+        .hero-description {
+            font-size: 1.8rem;
+            color: #777;
+            line-height: 1.6;
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* LÍNEA DIVISORA */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                #444 20%, 
+                #444 80%, 
+                transparent 100%);
+            margin: 120px 0;
+            border: none;
+            width: 100%;
+        }
+
+        /* SECCIÓN DESARROLLADOR */
+        .developer-section {
+            margin: 150px 0;
+        }
+
+        .developer-header {
+            margin-bottom: 80px;
+        }
+
+        .developer-title {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 0.9;
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .developer-subtitle {
+            font-size: 3.5rem;
+            color: #666;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .developer-content {
+            font-size: 2.2rem;
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 800px;
+            font-weight: 300;
+            margin-bottom: 60px;
+        }
+
+        /* TECNOLOGÍAS */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .tech-item {
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 2px;
+        }
+
+        .tech-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            font-size: 1.4rem;
+            color: #888;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tech-list li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        /* SECCIÓN PROYECTOS */
+        .projects-section {
+            margin: 150px 0;
+        }
+
+        .section-title {
+            font-size: 5rem;
+            color: #666;
+            font-weight: 700;
+            margin-bottom: 80px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        .project-item {
+            margin-bottom: 100px;
+            padding-bottom: 100px;
+            border-bottom: 1px solid #333;
+        }
+
+        .project-number {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .project-name {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .project-description {
+            font-size: 1.8rem;
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .project-link {
+            font-size: 1.2rem;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        /* SECCIÓN CONTACTO */
+        .contact-section {
+            margin: 150px 0;
+        }
+
+        .contact-links {
+            margin-top: 60px;
+        }
+
+        .contact-item {
+            display: block;
+            font-size: 2.5rem;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 40px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .contact-item:hover {
+            color: #ffffff;
+            padding-left: 20px;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 100px 0 60px;
+            border-top: 1px solid #333;
+            margin-top: 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: #666;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            line-height: 1.6;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .footer-link {
+            font-size: 1rem;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        /* ANIMACIONES */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-element {
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .name-title {
+                font-size: 10rem;
+            }
+            
+            .developer-title {
+                font-size: 6rem;
+            }
+            
+            .main-content {
+                padding-right: 180px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar-right {
+                width: 100px;
+            }
+            
+            .name-title {
+                font-size: 8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 2.5rem;
+            }
+            
+            .developer-title {
+                font-size: 5rem;
+            }
+            
+            .developer-subtitle {
+                font-size: 2.5rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-right {
+                position: relative;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 30px;
+                background-color: rgba(10, 10, 10, 0.95);
+            }
+            
+            .nav-top, .nav-bottom {
+                position: static;
+            }
+            
+            .nav-link {
+                writing-mode: horizontal-tb;
+                transform: none;
+                margin: 0 20px;
+            }
+            
+            .main-content {
+                padding: 60px 30px;
+            }
+            
+            .name-title {
+                font-size: 5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+            
+            .developer-title {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3.5rem;
+            }
+            
+            .project-name {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .name-title {
+                font-size: 4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .developer-title {
+                font-size: 3rem;
+            }
+            
+            .developer-subtitle {
+                font-size: 2rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 40px;
+            }
+            
+            .footer-nav {
+                align-items: flex-start;
+            }
+        }
+
+        /* EFECTOS ESPECIALES */
+        .highlight {
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #666;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight:hover:after {
+            transform: scaleX(1);
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: fixed;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+
+        .scroll-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #444;
+            border-radius: 50%;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .scroll-dot.active {
+            background-color: #ffffff;
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" data-section="hero"></div>
+        <div class="scroll-dot" data-section="developer"></div>
+        <div class="scroll-dot" data-section="projects"></div>
+        <div class="scroll-dot" data-section="contact"></div>
+    </div>
+
+    <!-- NAVBAR DERECHA -->
+    <nav class="navbar-right">
+        <div class="nav-top">
+            <a href="#hero" class="nav-link">Inicio</a>
+        </div>
+        
+        <div class="nav-bottom">
+            <a href="#developer" class="nav-link">Desarrollo</a>
+            <button class="nav-button">CV</button>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+        <!-- SECCIÓN HERO -->
+        <section id="hero" class="hero-section">
+            <h1 class="name-title fade-element">
+                CARLOS<br>ABNER
+            </h1>
+            
+            <div class="hero-subtitle fade-element delay-1">
+                Desarrollador Front-end especializado en interfaces modernas
+            </div>
+            
+            <div class="hero-description fade-element delay-2">
+                Con más de 8 años transformando conceptos en experiencias digitales funcionales. 
+                Especializado en desarrollo front-end, diseño de interfaces y optimización de performance. 
+                Cada proyecto representa un equilibrio entre estética minimalista y funcionalidad técnica.
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SECCIÓN DESARROLLADOR -->
+        <section id="developer" class="developer-section">
+            <div class="developer-header fade-element">
+                <div class="developer-title">
+                    Desarrollador
+                </div>
+                <div class="developer-subtitle">
+                    Front-end
+                </div>
+            </div>
+
+            <div class="developer-content fade-element delay-1">
+                Especializado en la creación de interfaces modernas, responsivas y altamente performantes. 
+                Mi enfoque combina principios de diseño minimalista con las mejores prácticas de desarrollo web, 
+                resultando en experiencias digitales que son tanto visualmente impactantes como técnicamente sólidas.
+            </div>
+
+            <div class="tech-grid fade-element delay-2">
+                <div class="tech-item">
+                    <div class="tech-title">Frontend</div>
+                    <ul class="tech-list">
+                        <li>HTML5</li>
+                        <li>CSS3 / SASS</li>
+                        <li>JavaScript ES6+</li>
+                        <li>React.js</li>
+                        <li>Vue.js</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-title">Backend</div>
+                    <ul class="tech-list">
+                        <li>Node.js</li>
+                        <li>Express</li>
+                        <li>MongoDB</li>
+                        <li>REST APIs</li>
+                        <li>GraphQL</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-title">Herramientas</div>
+                    <ul class="tech-list">
+                        <li>Git / GitHub</li>
+                        <li>Webpack</li>
+                        <li>Figma</li>
+                        <li>Adobe Creative Suite</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SECCIÓN PROYECTOS -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title fade-element">Proyectos Destacados</h2>
+            
+            <div class="project-item fade-element delay-1">
+                <div class="project-number">01</div>
+                <h3 class="project-name">Plataforma E-commerce</h3>
+                <div class="project-description">
+                    Desarrollo completo de plataforma de comercio electrónico con carrito dinámico, 
+                    sistema de pagos integrado y panel de administración. Enfoque en experiencia de 
+                    usuario y performance mobile-first.
+                </div>
+                <a href="#" class="project-link">Explorar proyecto</a>
+            </div>
+            
+            <div class="project-item fade-element delay-2">
+                <div class="project-number">02</div>
+                <h3 class="project-name">Dashboard Analytics</h3>
+                <div class="project-description">
+                    Interfaz de dashboard para visualización de datos en tiempo real. Implementación 
+                    de gráficos interactivos, filtros dinámicos y sistema de notificaciones push.
+                </div>
+                <a href="#" class="project-link">Explorar proyecto</a>
+            </div>
+            
+            <div class="project-item fade-element delay-3">
+                <div class="project-number">03</div>
+                <h3 class="project-name">Sistema de Gestión</h3>
+                <div class="project-description">
+                    Aplicación web para gestión de proyectos con funcionalidades de colaboración en 
+                    tiempo real, sistema de tareas y reportes automatizados.
+                </div>
+                <a href="#" class="project-link">Explorar proyecto</a>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+          <!-- SECCIÓN CONTACTO -->
+        <section id="contact" class="contact-section">
+            <h2 class="section-title fade-element">Contacto</h2>
+            
+            <div class="developer-content fade-element delay-1">
+                ¿Tienes un proyecto en mente o buscas colaborar en algo interesante?
+                Estoy disponible para nuevos desafíos y oportunidades creativas.
+            </div>
+            
+            <div class="contact-links fade-element delay-2">
+                <a href="mailto:carlos@ejemplo.com" class="contact-item">carlos@ejemplo.com</a>
+                <a href="https://github.com" target="_blank" class="contact-item">GitHub / carlosabner</a>
+                <a href="https://linkedin.com" target="_blank" class="contact-item">LinkedIn / carlosabner</a>
+                <a href="tel:+1234567890" class="contact-item">+1 234 567 890</a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer fade-element delay-3">
+            <div class="footer-text">
+                CARLOS ABNER<br>
+                DESARROLLADOR FRONT-END<br>
+                © 2024
+            </div>
+            
+            <div class="footer-nav">
+                <a href="#hero" class="footer-link">Inicio</a>
+                <a href="#developer" class="footer-link">Desarrollo</a>
+                <a href="#projects" class="footer-link">Proyectos</a>
+                <a href="#contact" class="footer-link">Contacto</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // SCROLL INDICATOR
+        const scrollDots = document.querySelectorAll('.scroll-dot');
+        const sections = document.querySelectorAll('section[id]');
+        
+        function updateScrollIndicator() {
+            let currentSection = '';
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            scrollDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.dataset.section === currentSection) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        // CLICK EN SCROLL DOTS
+        scrollDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const targetSection = document.getElementById(this.dataset.section);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // NAVEGACIÓN SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // BOTÓN DESCARGAR CV
+        document.querySelector('.nav-button').addEventListener('click', function() {
+            // Crear un enlace temporal para descargar el CV
+            const link = document.createElement('a');
+            link.href = '#';
+            link.download = 'Carlos_Abner_CV.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Mostrar mensaje (simulación)
+            alert('Descargando CV...');
+        });
+        
+        // ANIMACIÓN DE ENTRADA
+        function animateOnScroll() {
+            const fadeElements = document.querySelectorAll('.fade-element');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    const animationClass = element.classList[1];
+                    element.style.animationDelay = window.getComputedStyle(element).animationDelay;
+                }
+            });
+        }
+        
+        // EFECTO DE MAQUINA DE ESCRIBIR PARA EL NOMBRE
+        function typeWriterEffect() {
+            const nameTitle = document.querySelector('.name-title');
+            const originalHTML = nameTitle.innerHTML;
+            const lines = originalHTML.split('<br>');
+            
+            nameTitle.innerHTML = '';
+            
+            lines.forEach((line, lineIndex) => {
+                const lineContainer = document.createElement('div');
+                lineContainer.style.display = 'inline-block';
+                lineContainer.style.overflow = 'hidden';
+                
+                const lineSpan = document.createElement('span');
+                lineSpan.textContent = line;
+                lineSpan.style.display = 'inline-block';
+                lineSpan.style.transform = 'translateY(100%)';
+                lineSpan.style.opacity = '0';
+                lineSpan.style.transition = `transform 0.8s ${lineIndex * 0.3}s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.8s ${lineIndex * 0.3}s ease`;
+                
+                lineContainer.appendChild(lineSpan);
+                nameTitle.appendChild(lineContainer);
+                
+                // Agregar salto de línea excepto para el último
+                if (lineIndex < lines.length - 1) {
+                    nameTitle.appendChild(document.createElement('br'));
+                }
+                
+                // Animar después de un breve delay
+                setTimeout(() => {
+                    lineSpan.style.transform = 'translateY(0)';
+                    lineSpan.style.opacity = '1';
+                }, 300);
+            });
+        }
+        
+        // EFECTO HOVER EN TECNOLOGÍAS
+        document.querySelectorAll('.tech-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
+            });
+        });
+        
+        // EVENT LISTENERS
+        window.addEventListener('scroll', () => {
+            updateScrollIndicator();
+            animateOnScroll();
+        });
+        
+        window.addEventListener('load', () => {
+            typeWriterEffect();
+            animateOnScroll();
+            updateScrollIndicator();
+        });
+        
+        // CAMBIAR OPACIDAD DEL NAV AL SCROLL
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-right');
+            if (window.scrollY > 100) {
+                navbar.style.opacity = '0.9';
+            } else {
+                navbar.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>
+
+        
